@@ -1,3 +1,8 @@
+//Вариант-1.
+//Дана последовательность натуральных чисел {Aj}j=1...n (n<=10000). Удалить из последовательности простые числа и
+// продублировать составные числа, сумма цифр которых равна 15.
+
+
 #include <iostream>
 #include <vector>
 int SumOfDigits(int digit)
@@ -25,16 +30,17 @@ bool IsPrime(int number){
 int main() {
     std::vector<int> arrvec;
     arrvec = {1, 2, 3, 4, 5, 6, 7, 8, 9, 24234, 10, 1, 43, 432, 43242};
-    int a = 1;
     //Чтение массива
-    for (int i = 0; i < arrvec.size() ; ++i)
-        std::cout << arrvec[i] << std::endl;
+    std::cout << "Before: " << std::endl;
+    for (int i : arrvec)
+        std::cout << i << std::endl;
 
+    //изменение массива
     for (int i = 0; i < arrvec.size() ; ++i)
     {
         if(IsPrime(arrvec[i]))
         {
-            std::cout << "prime" << std::endl;
+            //std::cout << "prime" << std::endl;
             arrvec.erase(arrvec.begin() + i);
         }
         else if(SumOfDigits(arrvec[i]) == 15)
@@ -45,6 +51,8 @@ int main() {
         }
     }
 
+    //чтение массива
+    std::cout << "After:" << std::endl;
     for (int i = 0; i < arrvec.size() ; ++i)
         std::cout << arrvec[i] << std::endl;
 
